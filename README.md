@@ -144,13 +144,18 @@ Available in this [video](https://youtu.be/pgNkOtxIgPI).
 
 We can expect conservatively a 20% increase of the profit by choosing the best properties based on the location, features and time. Renovations can be made to increase the value, maybe choosing the number of bedrooms, design, build a basement, etc. 
 
-## 7.0 Next Steps
+## 7.0. Next Steps
 
 * Collect more external data of geolocation to know better the relation with the price.
 * Analyse more price by area of property.
 * Create a Machine Learning model to predict the price based on property features.
 * Collect feedbacks of the dashboard and make improvements.
 
+## 8.0. Tools Used
 
+* Python
+* Geopy API
+* Power BI
+* SQLite
 
 
