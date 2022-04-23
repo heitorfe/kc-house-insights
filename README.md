@@ -1,5 +1,7 @@
 # King County Houses - Insight Project
 
+<img src="https://user-images.githubusercontent.com/77629603/164895726-ded8c237-d95a-4c08-8655-1dea0a9a4d69.png" alt="" style="width:700px;"/>
+
 # 1.0. Context
 
 House Rocket is a fictitious company that buy and sell real estate in King County (US). Profit comes from the difference between the purchase price and the sale price. 
@@ -17,8 +19,7 @@ Increase profit through data analysis. With the database we can find out what mo
 * The business model of House Rocket is buy and sell houses, not rent;
 * Data meaning:
   * 'yr_renovated' = 0 means not renovated;
-  * 'city' was collect via API from 'lat' and 'long'; 
-  * 'grade' and 'condition are subjective variables;
+  * 'grade', 'condition' and 'view' are subjective variables;
 * All the data is available for buying and sell;
 
 # 4.0. Solution
@@ -66,29 +67,89 @@ Here i created new features from the original database.
 <details>
 <summary>Features Created</summary>
 
-table
+| Feature   | Definition                                |
+|-----------|-------------------------------------------|
+| year      | Year extracted from date                  |
+| month     | Month extracted from date                 |
+| day       | Day extracted from date                   |
+| season    | Season of the year                        |
+| m²        | Conversion of "sqft_lot" to m²            |
+| price/m²  | Price of m²                               |
+| city      | City collected via API from lat and long  |
+| basement  | Whether the property has basement or not  |
+| renovated | Whether the property was renovated or not |
 
 </details>
 
 ## 4.3. Data Filtering
 
+Filtering properties with  disproportionate amounts of number of bathrooms and bedrooms.
+
 ## 4.4. Exploratory Data Analysis 
+
+Checking the distribution of the variables and validating hypothesis. Here I already delivered the first result for the business, which were the insights.
 
 ## 4.5. Creating Recommendation Database
 
+I made a Recommendation Database with SQLite following these criteria:
+1. Price is below the median price of the base;
+2. Price is below the median price of the zipcode;
+3. Property was not renovated
+
+This base correspond to:
+* Number of properties: 5646
+* % of original database 26.13%
+* Total Price $1,685,541,856.00
+
+## 4.6. Creating Dashboard 
+
+I built a dashboard with Power BI to show with data visualization the insights. The dashboard is available in this [link](https://app.powerbi.com/view?r=eyJrIjoiNzExYzgyMDQtZjU5ZC00YzAzLTk4MzItYTI3MGQ2ZDM5MDJhIiwidCI6Ijg3MDk0MzhmLTMzNDItNGI0Yy1hZDY5LTNkMjFlMmY4OTZlOSJ9&pageName=ReportSection25f6ac0f4d2653587e84). It can be accessed everywhere with a smartphone, tablet or desktop.
+
+I also made a [video](https://youtu.be/pgNkOtxIgPI) with my own analyzes.
+
 # 5.0. Top Insights
 
-## H1:
+## Hypotesis 1: Houses with basements are at least 10% cheaper than the rest.
 
-## H2:
+False: Houses with a basement are 27% more expensive on average.
 
-## H3:
+![image](https://user-images.githubusercontent.com/77629603/164895178-b8406bb8-e7b9-4086-ba18-9f2aae5261ed.png)
+
+
+## Hypotesis 2: The value/m² of the property facing the sea is 50% more expensive than the others
+
+False: Waterfront properties are 37% more expensive
+
+![image](https://user-images.githubusercontent.com/77629603/164895287-09786dc5-6fb0-41c8-8c38-28cdc6518c84.png)
+
+
+But, the average price is 213% higher
+
+![image](https://user-images.githubusercontent.com/77629603/164895255-ade52319-c201-4ea1-a566-d9c9611dfed6.png)
+
+
+## Hypotesis 3:
+
+Renovated properties are at least 10% more expensive than not renovated
+
+True: Renovated properties are 20% more expansive than not renovated
+
+![image](https://user-images.githubusercontent.com/77629603/164895326-95089552-5252-488c-9bcf-6337929cffc2.png)
+
+## More insights 
+
+Available in this [video](https://youtu.be/pgNkOtxIgPI).
 
 # 6.0. Results
 
-## 6.1. Dashboard in Power BI
+We can expect conservatively a 20% increase of the profit by choosing the best properties based on the location, features and time. Renovations can be made to increase the value, maybe choosing the number of bedrooms, design, build a basement, etc. 
 
-## 6.2. Recommendation
+# 7.0 Next Steps
+
+* Collect more external data of geolocation to know better the relation with the price.
+* Analyse more price by area of property.
+* Create a Machine Learning model to predict the price based on property features.
+* Collect feedbacks of the dashboard and make improvements.
 
 
 
